@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="300.0" minWidth="450.0" prefHeight="300.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeInterfaceController">
    <center>
@@ -20,6 +21,9 @@
          <padding>
             <Insets top="20.0" />
          </padding>
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
       </Label>
    </top>
 </BorderPane>
