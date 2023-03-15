@@ -124,4 +124,36 @@ public class NaiveBayesClassifier {
 	    return result;
     }
     
+    /*
+     * This method returns the probability that an email is spam
+     * @return a double value representing the probability that an email is spam
+     */
+	public double getSpamProbability() {
+		return spamProbability;
+	} 
+	
+	/*
+	 * This method returns the probability that an email is not spam (ham)
+	 * @return a double value representing the probability that an email is ham
+	 */
+	public double getHamProbability() {
+		return hamProbability;
+	}
+	
+	/*
+	 * This method returns a map containing the probabilities of each word given that an email is spam
+	 * @return a map of String-Double pairs representing the probabilities of occurrence of words given that an email is spam
+	 */
+	public Map<String, Double> getSpamWordsProb() {
+		return spamWordsProb;
+	} 
+	
+	/*
+	 * This method returns a map containing the probabilities of each word given that an email is ham
+	 * @return a map of String-Double pairs representing the probabilities of occurrence of words given that an email is ham
+	 */
+	public Map<String, Double> getHamWordsProb() {
+		return hamWordsProb;
+	} 
+    
 }
