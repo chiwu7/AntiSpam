@@ -11,25 +11,36 @@ import model.FileChooserSample;
 
 public class TextAnalyzeController {
 	
-	// BorderPane correspondant à la fenetre
+	/*
+	 * BorderPane correspondant à la fenetre
+	 */
 	@FXML
 	private BorderPane root;
 	
-	// Bouton pour chercher les fichiers à analyser dans l'ordinateur de l'utilisateur
+	
+	/*
+	 * Bouton pour chercher les fichiers à analyser dans l'ordinateur de l'utilisateur
+	 */
 	@FXML
 	private Button chooseFileButton;
 	
-	// Bouton pour vérifier que l'utilisateur a bien importés des fichiers avant de lancer un analyse de spam
+	/*
+	 * Label sera affiché lorsque l'utilisateur clique sur le bouton valider mais qu'il
+	 * n'a pas sélectionné de fichier(s) à analyser.
+	 */
 	@FXML
-	private Button checkFilesImported;
+	private Label errorFileNotSelected;
 	
-	// Texte en fin de page pour annoncer le nombre de spam et de non spam trouvés
+	/*
+	 * Texte en fin de page pour annoncer le nombre de spam et de non spam trouvés
+	 */
 	@FXML
 	private Label successMessage;
 	
 	
 	public void openFileChooser() {
 		FileChooserSample fileChooser = new FileChooserSample();
+		// Ici
 		fileChooser.start(null);
 	}
 	
@@ -43,4 +54,10 @@ public class TextAnalyzeController {
 	@FXML
     private void initialize() {    
     }
+	
+	@FXML
+	private void fileNotSelected() {
+		// Vérifier si des fichiers ont été importés
+		this.errorFileNotSelected.setVisible(true);
+	}
 }

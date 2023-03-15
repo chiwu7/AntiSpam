@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="300.0" minWidth="450.0" prefHeight="300.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TextAnalyzeController">
+<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="300.0" minWidth="450.0" prefHeight="300.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TextAnalyzeController">
    <top>
       <Label text="Analyse de fichiers" BorderPane.alignment="CENTER">
          <padding>
@@ -28,12 +28,17 @@
                </padding></Label>
             <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="450.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#openFileChooser" text="Choisir un fichier ..." />
-                  <Button mnemonicParsing="false" text="Vérifier">
+                  <Button fx:id="chooseFileButton" mnemonicParsing="false" onAction="#openFileChooser" text="Choisir un fichier ..." />
+                  <Button mnemonicParsing="false" onAction="#fileNotSelected" text="Vérifier">
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>
                   </Button>
+                  <Label fx:id="errorFileNotSelected" text="Veuillez séléctionner un fichier" visible="false">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Label>
                </children>
             </HBox>
          </children>
@@ -43,7 +48,7 @@
       </VBox>
    </center>
    <bottom>
-      <Label text="SuccessButton" BorderPane.alignment="CENTER">
+      <Label fx:id="successMessage" text="SuccessButton" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="50.0" />
          </BorderPane.margin>
