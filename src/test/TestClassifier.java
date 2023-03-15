@@ -3,6 +3,7 @@ package test;
 import static org.junit.jupiter.api.Assertions.*;
 import model.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -75,4 +76,12 @@ class TestClassifier {
 		assertEquals(0.5, classifier.getSpamProbability(), 0.001);
 		assertEquals(0.5, classifier.getHamProbability(), 0.001);
     }
+	
+	@Test
+	 public void testPredictWithEmptyList() {
+		NaiveBayesClassifier classifier = new NaiveBayesClassifier();
+	     List<Mail> testData = new ArrayList<>();
+	     String result = classifier.predict(testData);
+	     assertEquals("LaPlace : The number of spam mail is : 0\nLaPlace : The number of ham mail is : 0", result);
+	 }
 }
