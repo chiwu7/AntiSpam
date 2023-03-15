@@ -78,10 +78,12 @@ class TestClassifier {
     }
 	
 	@Test
-	 public void testPredictWithEmptyList() {
+	public void testPredictWithEmptyList() {
 		NaiveBayesClassifier classifier = new NaiveBayesClassifier();
-	     List<Mail> testData = new ArrayList<>();
-	     String result = classifier.predict(testData);
-	     assertEquals("LaPlace : The number of spam mail is : 0\nLaPlace : The number of ham mail is : 0", result);
-	 }
+		List<Mail> testData = new ArrayList<>();
+		String result = classifier.predict(testData);
+		assertEquals("LaPlace : The number of spam mail is : 0\nLaPlace : The number of ham mail is : 0", result);
+	}
+	
+	
 }
