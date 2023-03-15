@@ -1,20 +1,23 @@
 package controller;
 
-
-import java.io.IOException;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import model.FileChooserSample;
 
 
-public class HomeInterfaceController {
+public class TextAnalyzeController {
 	
-
 	// BorderPane correspondant à la fenetre
 	@FXML
 	private BorderPane root;
+	
+	
+	public void openFileChooser() {
+		FileChooserSample fileChooser = new FileChooserSample();
+		fileChooser.start(null);
+	}
 	
 	
 	@FXML
@@ -26,13 +29,4 @@ public class HomeInterfaceController {
 	@FXML
     private void initialize() {    
     }
-	
-	public void changeViewToTextFileInterface() {
-		try {
-			Scene scene = root.getScene();
-			scene.setRoot(FXMLLoader.load(this.getClass().getResource("/vue/TextAnalyzeVue.fxml")));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
 }
