@@ -93,4 +93,35 @@ public class NaiveBayesClassifier {
 	    return "LaPlace : The number of spam mail is : " + spamNumber + "\nLaPlace : The number of ham mail is : " + hamNumber;
     }
     
+    /*
+     * This method predict whether a given Mail object is a spam or not by calculating is score
+     * @param mail a mail object to be used for prediction
+     * @return string containing if the mail is a spam or not
+     */
+    public String predict(Mail mail) {
+    		String result;
+	    	result = "Empty mail content";
+		    double spamScore = spamProbability;
+		    double hamScore = hamProbability;
+		    if(mail.getContent() != null && mail.getContent() != "") {
+		    String[] words = mail.getContent().split("\\s+");
+			   for (String word : words) {
+			   	if (spamWordsProb.containsKey(word)) {
+			   		spamScore *= spamWordsProb.get(word);
+			   	}
+
+			   	if (hamWordsProb.containsKey(word)) {
+			   		hamScore *= hamWordsProb.get(word);
+			   	}
+			   }
+				if (spamScore > hamScore) {
+					result = "LaPlace : spam";
+				} else {
+					result="LaPlace : ham";
+				}
+		    }
+
+	    return result;
+    }
+    
 }
