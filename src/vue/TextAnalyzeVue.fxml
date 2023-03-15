@@ -34,10 +34,13 @@
                         <Insets left="20.0" />
                      </HBox.margin>
                   </Button>
-                  <Label fx:id="errorFileNotSelected" text="Veuillez séléctionner un fichier" visible="false">
+                  <Label fx:id="errorFileNotSelected" text="Veuillez séléctionner au moins un fichier" textFill="RED" visible="false">
                      <HBox.margin>
                         <Insets left="5.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
                   </Label>
                </children>
             </HBox>
@@ -48,7 +51,7 @@
       </VBox>
    </center>
    <bottom>
-      <Label fx:id="successMessage" text="SuccessButton" BorderPane.alignment="CENTER">
+      <Label fx:id="successMessage" text="SuccessButton" visible="false" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="50.0" />
          </BorderPane.margin>

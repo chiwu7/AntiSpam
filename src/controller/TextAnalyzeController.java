@@ -58,6 +58,15 @@ public class TextAnalyzeController {
 	@FXML
 	private void fileNotSelected() {
 		// Vérifier si des fichiers ont été importés
+		// Faire un if
 		this.errorFileNotSelected.setVisible(true);
+	}
+	
+	@FXML
+	private void resultAnalyseMessage() {
+		// Modifier le texte avec le nb spam trouvés et ceux non spam
+		// Vérifier que "fileNoteSelected" 
+		this.successMessage.setText("LALA");
+		this.successMessage.setVisible(true);
 	}
 }
