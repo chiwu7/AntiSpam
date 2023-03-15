@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="300.0" minWidth="450.0" prefHeight="300.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeInterfaceController">
+   <center>
+      <HBox alignment="CENTER" prefHeight="282.0" prefWidth="600.0" spacing="50.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" text="Analyse de mails" />
+            <Button mnemonicParsing="false" onAction="#changeViewToTextFileInterface" text="Analyse de fichiers texte" />
+         </children>
+      </HBox>
+   </center>
+   <top>
+      <Label text="Choisissez une action à réaliser" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets top="20.0" />
+         </padding>
+      </Label>
+   </top>
+</BorderPane>
