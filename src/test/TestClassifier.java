@@ -108,16 +108,29 @@ class TestClassifier {
 		assertEquals("LaPlace : The number of spam mail is : 1\nLaPlace : The number of ham mail is : 1", result);
 	}
 	
+	@Test
+	public void testPredictOneSpamMail() {
+		NaiveBayesClassifier classifier = new NaiveBayesClassifier();
+		List<Mail> trainingData = Arrays.asList(
+				new Mail("This is a spam email", true)
+				);
+		classifier.train(trainingData);
+		Mail newMail = new Mail("This is a spam email", true);
+		String result = classifier.predict(newMail);
+		assertEquals("LaPlace : spam", result);
+	}
+	
 	 @Test
-	 public void testPredictOneSpamMail() {
+	 public void testPredictOneHamMail() {
 		 NaiveBayesClassifier classifier = new NaiveBayesClassifier();
 	     List<Mail> trainingData = Arrays.asList(
-	             new Mail("This is a spam email", true)
+	             new Mail("This is a spam email", true),
+	             new Mail("This is not a spam email", false)
 	     );
 	     classifier.train(trainingData);
-	     Mail newMail = new Mail("This is a spam email", true);
+	     Mail newMail = new Mail("This is not a spam email", false);
 	     String result = classifier.predict(newMail);
-	     assertEquals("LaPlace : spam", result);
+	     assertEquals("LaPlace : ham", result);
 	 }
 	
 }
