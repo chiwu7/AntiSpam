@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 import model.FileChooserSample;
 
 
@@ -40,8 +41,16 @@ public class TextAnalyzeController {
 	
 	public void openFileChooser() {
 		FileChooserSample fileChooser = new FileChooserSample();
-		// Ici
-		fileChooser.start(null);
+		/*
+		 * TODO: Enlever le null et ajouter quelque chose à la place -> voir comment cela marche dans le main
+		 */
+		Stage stage = new Stage();
+		fileChooser.start(stage);
+	}
+	
+	public boolean hasFilesImported() {
+		// ajouter condition pour chercher le fichier
+		return true;
 	}
 	
 	
@@ -65,7 +74,7 @@ public class TextAnalyzeController {
 	@FXML
 	private void resultAnalyseMessage() {
 		// Modifier le texte avec le nb spam trouvés et ceux non spam
-		// Vérifier que "fileNoteSelected" 
+		// Vérifier que "fileNotSelected" 
 		this.successMessage.setText("LALA");
 		this.successMessage.setVisible(true);
 	}
