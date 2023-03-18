@@ -1,7 +1,10 @@
 package model;
+
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,12 +23,19 @@ import javafx.stage.Stage;
 public final class FileChooserSample extends Application {
  
     private Desktop desktop = Desktop.getDesktop();
+    
+    List<File> selectedFiles = new ArrayList<>();
  
     @Override
     public void start(final Stage stage) {
-        stage.setTitle("File Chooser Sample");
+    	// Set title for the pop-up
+        stage.setTitle("Select File(s)");
+        stage.setWidth(300);
+        stage.setHeight(200);
  
         final FileChooser fileChooser = new FileChooser();
+        
+        configuringFileChooser(fileChooser);
  
         final Button openButton = new Button("Open a File...");
         final Button openMultipleButton = new Button("Open Files...");
@@ -35,9 +45,9 @@ public final class FileChooserSample extends Application {
                 @Override
                 public void handle(final ActionEvent e) {
                     File file = fileChooser.showOpenDialog(stage);
-//                    if (file != null) {
-//                        openFile(file);
-//                    }
+                    if (file != null) {
+                        selectedFiles.add(file);
+                    }
                 }
             });
  
@@ -49,7 +59,7 @@ public final class FileChooserSample extends Application {
                         fileChooser.showOpenMultipleDialog(stage);
                     if (list != null) {
                         for (File file : list) {
-                            openFile(file);
+                            selectedFiles.add(file);
                         }
                     }
                 }
@@ -81,5 +91,16 @@ public final class FileChooserSample extends Application {
                     Level.SEVERE, null, ex
                 );
         }
+    }
+    
+    public List<File> getPathFiles() {
+		return this.selectedFiles;
+	}
+    
+    private void configuringFileChooser(FileChooser fileChooser) {        
+        // Add Extension Filters
+        fileChooser.getExtensionFilters().addAll(//
+                new FileChooser.ExtensionFilter("Text", "*.txt"), 
+                new FileChooser.ExtensionFilter("All Files", "*.*"));
     }
 }
